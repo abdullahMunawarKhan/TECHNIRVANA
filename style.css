@@ -14,6 +14,8 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+html, body { overflow-x: hidden; max-width: 100%; }
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -99,16 +101,21 @@ a { color: inherit; text-decoration: none; }
 
 .hero h1 {
   font-family: "Baloo 2", cursive;
-  font-size: clamp(74px, 10vw, 145px);
-  line-height: .76;
-  letter-spacing: -5px;
+  font-size: clamp(36px, 10.5vw, 108px);
+  line-height: 1;
+  letter-spacing: clamp(-1.5px, -.45vw, -4.5px);
   color: white;
   text-shadow:
-    5px 5px 0 var(--navy),
+    4px 4px 0 var(--navy),
     -3px -3px 0 var(--navy),
-    3px -1px 0 var(--navy),
-    -1px 3px 0 var(--navy);
+    2px -1px 0 var(--navy),
+    -1px 2px 0 var(--navy);
   transform: rotate(-2deg);
+  transform-origin: left center;
+  white-space: nowrap;
+  display: inline-block;
+  max-width: none;
+  width: auto;
 }
 .hero h1 span { color: var(--pink); }
 .hero-ribbon {
@@ -186,17 +193,20 @@ a { color: inherit; text-decoration: none; }
 .event-section { padding: 100px 0 80px; }
 .section-heading { text-align:center; max-width:760px; margin:0 auto 48px; }
 .section-heading h2, .details-copy h2, .codopoly-content h2, .business-content h2, .pencil-card h2, .final-cta h2 {
-  font-family:"Baloo 2", cursive; font-size: clamp(44px, 6vw, 70px); line-height:.95; color:var(--navy);
+  font-family:"Baloo 2", cursive; font-size: clamp(32px, 5.5vw, 66px); line-height:.98; color:var(--navy);
   margin-top:8px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 .section-heading em, .details-copy em, .codopoly-content em, .business-content em, .pencil-card em, .final-cta em { color:var(--pink); font-style:normal; }
 .section-heading p { margin-top:12px; color:#687891; font-size:14px; }
 
-.event-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:stretch; }
+.event-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; align-items:stretch; }
 .event-card {
-  padding:25px; border-radius:var(--radius); border:2px solid var(--navy);
-  min-height: 470px; display:flex; flex-direction:column; box-shadow:8px 10px 0 var(--navy);
+  padding:22px; border-radius:var(--radius); border:2px solid var(--navy);
+  min-height: 460px; display:flex; flex-direction:column; box-shadow:8px 10px 0 var(--navy);
   transition:transform .25s, box-shadow .25s;
+  overflow: hidden;
 }
 .event-card:hover { transform:translateY(-8px) rotate(-.5deg); box-shadow:12px 16px 0 var(--navy); }
 .blue-card { background:#e7f4ff; }
@@ -209,11 +219,21 @@ a { color: inherit; text-decoration: none; }
 .club-pill { padding:7px 11px; border-radius:999px; background:white; border:1px solid rgba(16,32,59,.2); font-size:9px; font-weight:800; letter-spacing:1px; }
 .event-number { font-family:"Baloo 2"; font-size:27px; font-weight:800; opacity:.35; }
 .icon-box { width:58px; height:58px; display:grid; place-items:center; border-radius:18px; margin:22px 0 12px; background:white; border:2px solid var(--navy); font-size:28px; }
-.event-card h3 { font-family:"Baloo 2"; font-size:38px; line-height:.82; color:var(--navy); }
+.event-card h3 { font-family:"Baloo 2"; font-size: clamp(28px, 4.2vw, 38px); line-height:.85; color:var(--navy); word-break: break-word; overflow-wrap: break-word; hyphens: auto; }
 .tagline { font-size:11px; font-weight:800; margin-top:8px; }
 .event-summary { margin-top:14px; font-size:12px; line-height:1.7; color:#52637c; }
 .mini-info { list-style:none; margin-top:15px; display:grid; gap:7px; font-size:10px; color:#41536d; }
-.register-btn { margin-top:auto; display:flex; justify-content:space-between; align-items:center; padding:12px 14px; background:var(--navy); color:white; border-radius:13px; font-size:11px; font-weight:800; }
+.card-actions { margin-top:auto; display:flex; flex-direction:column; gap:8px; }
+.detail-btn {
+  display:flex; justify-content:center; align-items:center;
+  padding:10px 12px; background:white; color:var(--navy);
+  border:1.5px solid var(--navy); border-radius:12px;
+  font-size:11px; font-weight:700; letter-spacing:.2px;
+  transition: transform .2s, background .2s, box-shadow .2s;
+}
+.detail-btn:hover { transform: translateY(-2px); background: #f3f7fd; box-shadow: 0 6px 14px rgba(7,26,56,.08); }
+.register-btn { display:flex; justify-content:space-between; align-items:center; padding:12px 14px; background:var(--navy); color:white; border-radius:13px; font-size:11px; font-weight:800; transition: transform .2s, box-shadow .2s; }
+.register-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(7,26,56,.18); }
 .register-btn span { font-size:18px; }
 
 .details-section {
@@ -308,35 +328,52 @@ footer p { text-align:center; }
 }
 .toast.show { transform:translate(-50%,0); opacity:1; }
 
+@media (max-width: 1080px) {
+  .event-grid { grid-template-columns: repeat(2, 1fr); }
+  .featured { transform: none; }
+  .featured:hover { transform: translateY(-8px) rotate(.5deg); }
+  .details-section, .codopoly-details, .business-details { grid-template-columns: 1fr; gap: 36px; }
+  .hero h1 { font-size: clamp(32px, 9.5vw, 88px); letter-spacing: clamp(-1.2px, -.35vw, -3.5px); }
+}
+
 @media (max-width: 900px) {
   .navbar nav { display:none; }
   .hero { grid-template-columns:1fr; padding-top:135px; min-height:auto; }
   .hero-art { min-height:360px; }
   .event-grid { grid-template-columns:1fr; }
   .event-card, .featured, .featured:hover { transform:none; }
-  .details-section, .codopoly-details, .business-details { grid-template-columns:1fr; }
+  .event-card { min-height: auto; }
   .guide-grid { grid-template-columns:1fr 1fr; }
   .details-section { padding:45px 30px; }
   .final-cta { padding:40px 30px; }
 }
 
 @media (max-width: 600px) {
-  .navbar { top:10px; width:calc(100% - 20px); }
+  .navbar { top:10px; width:calc(100% - 20px); gap: 10px; }
   .brand { font-size:11px; }
-  .nav-cta { padding:9px 13px; }
+  .brand-mark { width: 32px; height: 32px; font-size: 9px; }
+  .nav-cta { padding:9px 13px; font-size: 11px; }
   .hero { padding:125px 20px 50px; }
-  .hero h1 { font-size:66px; letter-spacing:-3px; }
-  .hero-ribbon { margin-left:8px; font-size:10px; }
+  .hero h1 { font-size: clamp(28px, 12vw, 60px); letter-spacing: clamp(-1px, -.25vw, -2.5px); line-height: 1; }
+  .hero-ribbon { margin-left:8px; font-size:10px; padding: 7px 18px; }
   .hero-copy > p { font-size:14px; }
+  .hero-actions { flex-wrap: wrap; }
   .hero-art { min-height:280px; }
   .ferris { transform:scale(.75); transform-origin:right bottom; right:0; }
   .tent { transform:scale(.75); transform-origin:bottom; }
   .event-section, .rules-section { padding:65px 0; }
-  .details-section, .codopoly-details, .business-details { margin-top:20px; }
+  .event-section .section-heading { margin-bottom: 36px; }
+  .details-section, .codopoly-details, .business-details { margin-top:20px; padding: 0 0 40px; }
+  .codopoly-details, .business-details { padding: 0; }
+  .icon-box { width: 52px; height: 52px; font-size: 24px; margin: 18px 0 10px; }
+  .event-card h3 { font-size: clamp(30px, 8.5vw, 40px); }
   .guide-grid { grid-template-columns:1fr; }
   .pencil-card { padding:35px 25px; }
   .pencil-timeline { grid-template-columns:1fr; }
   .final-cta { flex-direction:column; align-items:flex-start; }
-  .final-cta h2 { font-size:40px; }
+  .final-cta h2 { font-size: clamp(32px, 8vw, 44px); }
   footer { flex-direction:column; text-align:center; }
+  .footer-copy { white-space: normal; }
+  .club-pill { font-size: 8px; padding: 6px 9px; letter-spacing: .6px; }
+  .event-number { font-size: 22px; }
 }

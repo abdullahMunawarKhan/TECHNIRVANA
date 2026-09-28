@@ -6,7 +6,7 @@
 */
 
 const FORM_LINKS = {
-  codopoly: "PASTE_CODOPOLY_GOOGLE_FORM_LINK_HERE",
+  codopoly: "https://forms.gle/YwoNspQNfBoARQcJ7",
 
   business: "https://forms.gle/4y7s1YcnmdLBycs27",
 

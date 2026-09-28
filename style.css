@@ -179,17 +179,17 @@ a { color: inherit; text-decoration: none; }
 .d2 { right:5%; top:25%; font-size:42px; color:var(--pink); }
 .d3 { left:52%; top:13%; font-size:40px; opacity:.5; }
 
-.event-section, .details-section, .rules-section, .business-details, .pencil-details, .final-cta {
+.event-section, .details-section, .rules-section, .codopoly-details, .business-details, .pencil-details, .final-cta {
   width: min(1180px, calc(100% - 32px)); margin: 0 auto;
 }
 
 .event-section { padding: 100px 0 80px; }
 .section-heading { text-align:center; max-width:760px; margin:0 auto 48px; }
-.section-heading h2, .details-copy h2, .business-content h2, .pencil-card h2, .final-cta h2 {
+.section-heading h2, .details-copy h2, .codopoly-content h2, .business-content h2, .pencil-card h2, .final-cta h2 {
   font-family:"Baloo 2", cursive; font-size: clamp(44px, 6vw, 70px); line-height:.95; color:var(--navy);
   margin-top:8px;
 }
-.section-heading em, .details-copy em, .business-content em, .pencil-card em, .final-cta em { color:var(--pink); font-style:normal; }
+.section-heading em, .details-copy em, .codopoly-content em, .business-content em, .pencil-card em, .final-cta em { color:var(--pink); font-style:normal; }
 .section-heading p { margin-top:12px; color:#687891; font-size:14px; }
 
 .event-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:stretch; }
@@ -244,14 +244,25 @@ a { color: inherit; text-decoration: none; }
 .guide-item strong { font-size:13px; }
 .guide-item p { font-size:10px; line-height:1.6; color:#728098; margin-top:5px; }
 
-.business-details { padding:80px 0; display:grid; grid-template-columns:1.15fr .85fr; gap:60px; }
-.business-content > p, .pencil-card > p { color:#687891; font-size:14px; line-height:1.8; max-width:750px; margin-top:16px; }
+.codopoly-details, .business-details { padding:80px 0; display:grid; grid-template-columns:1.15fr .85fr; gap:60px; }
+.codopoly-content > p, .business-content > p, .pencil-card > p { color:#687891; font-size:14px; line-height:1.8; max-width:750px; margin-top:16px; }
 .rounds { margin-top:30px; display:grid; gap:10px; }
 .round { display:flex; gap:15px; padding:13px 0; border-bottom:1px dashed #d7e1ec; }
 .round b { min-width:35px; height:35px; display:grid; place-items:center; border-radius:50%; background:#fff0c0; color:#a66d00; font-size:10px; }
+.codopoly-content .round b { background:#dbeeff; color:#0d5bb8; }
 .round strong, .round small { display:block; }
 .round strong { font-size:12px; }
 .round small { color:#7b899d; font-size:10px; margin-top:3px; }
+
+.codopoly-rules-box { background:#e7f4ff; border:2px solid var(--navy); border-radius:28px; padding:30px; box-shadow:10px 12px 0 var(--navy); }
+.codopoly-rules-box h3 { font-family:"Baloo 2"; font-size:37px; line-height:1; }
+.codopoly-rules-box .rules-sub { margin-top:8px; font-size:11px; color:#526680; }
+.codopoly-rules-box h4 { margin-top:25px; font-size:11px; text-transform:uppercase; letter-spacing:1px; }
+.codopoly-rules-box ul { list-style:none; margin-top:10px; display:grid; gap:8px; font-size:11px; }
+.codopoly-rules-box li::before { content:"✓"; color:var(--blue); font-weight:900; margin-right:8px; }
+.codopoly-rules-box .timing-box { margin-top:25px; padding-top:18px; border-top:1px dashed #a7c5e3; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+.codopoly-rules-box .timing-box span { font-family:"Baloo 2"; font-size:22px; color:var(--blue); }
+.codopoly-rules-box .timing-box small { width:100%; color:#5b7391; font-size:8px; letter-spacing:1.5px; }
 
 .rules-box { background:#fff4d7; border:2px solid var(--navy); border-radius:28px; padding:30px; box-shadow:10px 12px 0 var(--navy); }
 .rules-box h3 { font-family:"Baloo 2"; font-size:37px; line-height:1; }
@@ -303,7 +314,7 @@ footer p { text-align:center; }
   .hero-art { min-height:360px; }
   .event-grid { grid-template-columns:1fr; }
   .event-card, .featured, .featured:hover { transform:none; }
-  .details-section, .business-details { grid-template-columns:1fr; }
+  .details-section, .codopoly-details, .business-details { grid-template-columns:1fr; }
   .guide-grid { grid-template-columns:1fr 1fr; }
   .details-section { padding:45px 30px; }
   .final-cta { padding:40px 30px; }
@@ -321,7 +332,7 @@ footer p { text-align:center; }
   .ferris { transform:scale(.75); transform-origin:right bottom; right:0; }
   .tent { transform:scale(.75); transform-origin:bottom; }
   .event-section, .rules-section { padding:65px 0; }
-  .details-section, .business-details { margin-top:20px; }
+  .details-section, .codopoly-details, .business-details { margin-top:20px; }
   .guide-grid { grid-template-columns:1fr; }
   .pencil-card { padding:35px 25px; }
   .pencil-timeline { grid-template-columns:1fr; }

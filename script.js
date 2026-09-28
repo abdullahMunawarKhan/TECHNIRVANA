@@ -13,7 +13,6 @@ const FORM_LINKS = {
   pencil: "https://forms.gle/KTpkJfkBJHfdAsa67"
 };
 
-
 // ==========================================
 // Toast Notification
 // ==========================================
@@ -32,7 +31,6 @@ function showToast(message) {
     toast.classList.remove("show");
   }, 2800);
 }
-
 
 // ==========================================
 // Registration Buttons

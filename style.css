@@ -99,6 +99,33 @@ a { color: inherit; text-decoration: none; }
 .eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
 .eyebrow span { width: 34px; height: 2px; background: var(--yellow); }
 
+.institute-block {
+  display:flex; flex-direction:column; align-items:center; gap:4px; margin-bottom: 22px; text-align: center;
+}
+.institute-name {
+  font-family: "Baloo 2", cursive;
+  font-size: clamp(14px, 2.2vw, 22px);
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: .3px;
+  line-height: 1.15;
+  max-width: 620px;
+}
+.institute-dept {
+  display: inline-block;
+  font-size: clamp(10px, 1.3vw, 12px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--pink);
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: white;
+  border: 1.5px solid rgba(16, 32, 59, .15);
+  box-shadow: 0 6px 18px rgba(12, 49, 92, .06);
+  margin-top: 2px;
+}
+
 .hero h1 {
   font-family: "Baloo 2", cursive;
   font-size: clamp(36px, 10.5vw, 108px);
@@ -354,6 +381,9 @@ footer p { text-align:center; }
   .brand-mark { width: 32px; height: 32px; font-size: 9px; }
   .nav-cta { padding:9px 13px; font-size: 11px; }
   .hero { padding:125px 20px 50px; }
+  .institute-block { margin-bottom: 18px; gap: 3px; }
+  .institute-name { font-size: clamp(12px, 4vw, 16px); max-width: 100%; }
+  .institute-dept { font-size: 9px; letter-spacing: 1.3px; padding: 4px 11px; }
   .hero h1 { font-size: clamp(28px, 12vw, 60px); letter-spacing: clamp(-1px, -.25vw, -2.5px); line-height: 1; }
   .hero-ribbon { margin-left:8px; font-size:10px; padding: 7px 18px; }
   .hero-copy > p { font-size:14px; }

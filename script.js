@@ -6,11 +6,11 @@
 */
 
 const FORM_LINKS = {
-  codopoly: "https://forms.gle/YwoNspQNfBoARQcJ7",
+  codopoly: "https://forms.gle/V3GNx2oJ7CW3sqSg7",
 
-  business: "https://forms.gle/4y7s1YcnmdLBycs27",
+  business: "https://forms.gle/z9hm6q8PkQR1dbTm6",
 
-  pencil: "https://forms.gle/KTpkJfkBJHfdAsa67"
+  pencil: " https://forms.gle/m8Zrcb2h4xgDL4r68"
 };
 
 // ==========================================
